@@ -13,11 +13,11 @@
 	import { initLangStore, langStore, toggleLang } from '@/stores/langStore';
 	import type { SupportedLanguages } from '@/types/common/locale';
 	import type { PagePropsInput } from '@/types/page/page.type';
-	import { LANGS } from '@/types/lang/LangTranslate.type';
 	import { untrack } from 'svelte';
 	import { v4 as uuidv4 } from 'uuid';
+	type SupportedLanguagesKey = keyof SupportedLanguages;
 
-	export const createChkLang = () => ({
+	export const createChkLang = (): SupportedLanguages => ({
 		ko: true,
 		en: true,
 		zh: false,
@@ -30,6 +30,15 @@
 		lang?: SupportedLanguages;
 		view?: PagePropsInput['view'];
 	}
+
+	export const LANGS: { key: SupportedLanguagesKey; label: string }[] = [
+		{ key: 'ko', label: '한국어(KO)' },
+		{ key: 'en', label: '영어(EN)' },
+		{ key: 'zh', label: '중국어(ZH)' },
+		{ key: 'ja', label: '일본어(JA)' },
+		{ key: 'th', label: '태국어(TH)' },
+		{ key: 'vi', label: '베트남어(VI)' },
+	];
 
 	let { lang = $bindable(createChkLang()), view = 'reg' }: Props = $props();
 
@@ -53,7 +62,7 @@
 			{#each LANGS as item}
 				{#if item.key === 'ko' || item.key === 'en'}
 					<ui-txt txt={item.label} size="sm" class="flex-none" cls="text-black"></ui-txt>
-				{:else if $langStore.lang[item.key]}
+				{:else if $langStore?.[item.key]}
 					<ui-txt txt={item.label} size="sm" class="flex-none" cls="text-black"></ui-txt>
 				{/if}
 			{/each}
@@ -68,11 +77,11 @@
 						item-id={`lang-chk-${uuidv4()}`}
 						txt={item.label}
 						class="flex-none"
-						checked={$langStore.lang[item.key]}
+						checked={$langStore[item.key]}
 						change={(e: Event) => {
 							const input = e.currentTarget as HTMLInputElement;
-							lang[item.key] = input.checked;
-							toggleLang(item.key);
+							lang[item.key as keyof SupportedLanguages] = input.checked;
+							toggleLang(item.key as SupportedLanguagesKey);
 						}}
 					></ui-checkbox>
 				{/if}

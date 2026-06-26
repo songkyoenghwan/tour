@@ -50,7 +50,7 @@
 	let itemId = uuidv4();
 	let langToggle = $state(false);
 	let local = $state(createTranslateLang());
-	let btnView = $derived($langStore.lang.zh || $langStore.lang.ja || $langStore.lang.th || $langStore.lang.vi);
+	let btnView = $derived($langStore.zh || $langStore.ja || $langStore.th || $langStore.vi);
 
 	$effect(() => {
 		if (lang && typeof lang === 'object') {
