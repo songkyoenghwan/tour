@@ -1,10 +1,10 @@
 <script lang="ts">
-	import { createSortable } from '@dnd-kit/svelte/sortable';
 	import UiBtn from '@/svelte/btn/UiBtn.svelte';
 	import HoverTooltip from '@/svelte/tooltip/HoverTooltip.svelte';
 	import IconUpload from '@/svelte/upload/IconUpload.svelte';
 	// import type { LangTranslateKey } from '@/types/lang/langTranslate.type';
 	import type { LocalizedText } from '@/types/common/locale';
+	import { createSortable } from '@dnd-kit/svelte/sortable';
 	import type { Snippet } from 'svelte';
 
 	interface Props {

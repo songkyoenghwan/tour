@@ -49,6 +49,7 @@
 			"@/static/*": ["./static/*"],
 			"@/events/*": ["./events/*"],
 			"@/type/*": ["./src/type/*"],
+			"@/types/*": ["./src/types/*"],
 			"@/mocks/*": ["./src/mocks/*"],
 			"@/libs/*": ["./public/libs/*"],
 			"@/dummy/*": ["./public/dummy/*"]

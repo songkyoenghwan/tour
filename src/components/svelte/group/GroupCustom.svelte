@@ -10,13 +10,13 @@
 />
 
 <script lang="ts">
-	import { move } from '@dnd-kit/helpers';
-	import { DragDropProvider } from '@dnd-kit/svelte';
 	import UiBtn from '@/svelte/btn/UiBtn.svelte';
 	import Chk from '@/svelte/checkbox/Chk.svelte';
 	import InputGroup from '@/svelte/checkbox/InputGroup.svelte';
 	import GroupDnd from '@/svelte/group/GroupDnd.svelte';
 	import InputText from '@/svelte/inputs/InputText.svelte';
+	import { move } from '@dnd-kit/helpers';
+	import { DragDropProvider } from '@dnd-kit/svelte';
 	// import { createDefaultConfigResult, type BtnLink, type Props } from '@/types/group/groupCustom.type';
 	import { untrack } from 'svelte';
 	import ColorPicker, { ChromeVariant } from 'svelte-awesome-color-picker';

@@ -15,6 +15,7 @@
 	import type { PagePropsInput } from '@/types/page/page.type';
 	import { untrack } from 'svelte';
 	import { v4 as uuidv4 } from 'uuid';
+
 	type SupportedLanguagesKey = keyof SupportedLanguages;
 
 	export const createChkLang = (): SupportedLanguages => ({

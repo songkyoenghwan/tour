@@ -1,10 +1,12 @@
 import path from 'path';
 import { fileURLToPath } from 'url';
+
 import { enhancedImages } from '@sveltejs/enhanced-img';
 import { svelte } from '@sveltejs/vite-plugin-svelte';
 import tailwindcss from '@tailwindcss/vite';
 // import { paraglideVitePlugin } from '@inlang/paraglide-js';
 import { defineConfig } from 'vite';
+
 import { aliases } from './aliases.js';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -12,7 +14,7 @@ const __dirname = path.dirname(__filename);
 
 export default defineConfig({
 	root: '.',
-	publicDir: './static',
+	// publicDir: './static',
 	base: '/output/',
 	resolve: { alias: aliases },
 	define: { __STATIC_URL__: JSON.stringify('/output'), 'process.env.NODE_ENV': JSON.stringify('production') },
@@ -29,7 +31,7 @@ export default defineConfig({
 	build: {
 		outDir: './output',
 		lib: {
-			entry: path.resolve(__dirname, 'src/lib/index.ts'),
+			entry: path.resolve(__dirname, 'src/index.ts'),
 			name: 'WebComponents',
 			// fileName: 'main-bundle',
 			fileName: (format) => `wc.${format}.js`,

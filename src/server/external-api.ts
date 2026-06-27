@@ -1,6 +1,6 @@
-// src/lib/server/external-api.ts
 import { API_BASE } from '$env/static/private';
 
+// src/lib/server/external-api.ts
 import { authenticate, clearAuthCache } from '@/server/external-auth';
 
 export const externalFetch = async (path: string, init: RequestInit = {}) => {

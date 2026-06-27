@@ -82,6 +82,9 @@
 	--color-secondary: #e5f8f1;
 	--color-darken: #289130;
 	--color-error: #ff4c4c;
+	--color-ff0000: #ff0000;
+	--color-danger: #fb2c36;
+	--color-line-primary: #256ef4;
 
 	--color-fffa65: #fffa65;
 	--color-3282f5: #3282f5;
@@ -91,6 +94,8 @@
 	--color-90efd0: #90efd0;
 	--color-f0fdfa: #f0fdfa;
 	--color-1616ff: #1616ff;
+	--color-256ef4: #256ef4;
+	--color-3e61ff: #3e61ff;
 
 	--color-slate-50: #f8fafc;
 	--color-slate-100: #f1f5f9;
@@ -109,8 +114,7 @@
 
 	--font-sans:
 		'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI',
-		'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
-		sans-serif;
+		'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
 
 	--shadow-header: 0 6px 10px rgba(0, 0, 0, 0.05);
 	--shadow-1xs: 0 0 2px rgba(0, 0, 0, 0.2);
@@ -121,4 +125,12 @@
 	--header-height: 60px;
 	--main-height: calc(100dvh - var(--header-height));
 	--lnb-width: 75px;
+}
+
+aside-lnb {
+	background-color: var(--color-cms-3);
+}
+
+header-list {
+	background-color: var(--color-white);
 }

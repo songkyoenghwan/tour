@@ -1,13 +1,12 @@
 ---
 import ScriptInline from '@/layouts/ScriptInline.astro';
+import '@/styles/index.css';
 
 interface Props {
 	Title?: string;
 }
 const { Title: title } = Astro.props;
 const pathname = Astro.url.pathname;
-
-import '@/styles/index.css';
 ---
 
 <!doctype html>
@@ -15,8 +14,7 @@ import '@/styles/index.css';
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-		<link rel="icon" href="/static/favicon.ico" type="image/x-icon" />
+		<link rel="shortcut icon" href="/favicon.svg" type="image/x-icon" />
 		<meta name="view-transition" content="same-origin" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{pathname} |</title>

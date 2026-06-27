@@ -6,7 +6,8 @@
 			open: { type: 'String', reflect: true },
 			maxlength: { type: 'String', attribute: 'data-max-length' },
 			lang: { type: 'Object' },
-			view: { type: 'String', reflect: true },
+			view: { type: 'String' },
+			hidden: { type: 'String', attribute: 'data-text-hidden' },
 		},
 	}}
 />
@@ -17,6 +18,7 @@
 	import type { PagePropsInput } from '@/types/page/page.type';
 	import { untrack } from 'svelte';
 	import { v4 as uuidv4 } from 'uuid';
+
 	type LocalizedKey = keyof LocalizedText;
 
 	export interface Props {
@@ -24,10 +26,20 @@
 		lang?: LocalizedText;
 		maxlength?: number;
 		view?: PagePropsInput['view'];
+		hidden: string;
 		btnPreview: string;
 	}
 
-	let { lang = $bindable(), error, open = 'close', maxlength, view = 'reg', btnPreview = '', click }: Props = $props();
+	let {
+		lang = $bindable(),
+		error,
+		open = 'close',
+		maxlength,
+		view = 'reg',
+		hidden = '',
+		btnPreview = '',
+		click,
+	}: Props = $props();
 
 	export const LANGS: { key: LocalizedKey; label: string }[] = [
 		{ key: 'ko', label: '한국어(KO)' },
@@ -85,12 +97,24 @@
 </script>
 
 {#if local}
-	{#if view === 'detail'}
-		<ul class={['flex flex-col', btnPreview === 'btn-name' ? 'gap-1.5 pt-1.5' : '']}>
+	{#if view === 'detail' || view === 'side'}
+		<ul class={['flex flex-col', btnPreview === 'btn-name' ? 'gap-1.5 pt-1.5' : view === 'side' ? 'gap-1.5' : '']}>
 			{#each LANGS as item}
 				{@const key = item.key}
 
-				{#if local[key] !== ''}
+				{#if view === 'side'}
+					{#if String(hidden).toUpperCase() !== String(key).toUpperCase()}
+						<li class="flex items-center gap-1.5">
+							<p class="min-w-5 text-center text-xs text-slate-600">{String(key).toUpperCase()}</p>
+
+							{#if String(local[key]) === ''}
+								<p class="text-xs text-slate-500">없음</p>
+							{:else}
+								<p class="text-xs text-black">{String(local[key])}</p>
+							{/if}
+						</li>
+					{/if}
+				{:else if local[key] !== ''}
 					<li
 						class={[
 							btnPreview === 'btn-name'

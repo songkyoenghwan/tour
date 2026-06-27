@@ -5,9 +5,9 @@
 @import '../../node_modules/flatpickr/dist/flatpickr.min.css';
 
 /* @plugin 'flowbite/plugin'; */
-
+/* 
 @source '../../node_modules/flowbite-svelte/dist';
-@source '../../node_modules/flowbite-svelte-icons/dist';
+@source '../../node_modules/flowbite-svelte-icons/dist'; */
 
 @theme {
 	--color-000: rgb(0, 0, 0);
@@ -91,6 +91,9 @@
 	--color-secondary: #e5f8f1;
 	--color-darken: #289130;
 	--color-error: #ff4c4c;
+	--color-ff0000: #ff0000;
+	--color-danger: #fb2c36;
+	--color-line-primary: #256ef4;
 
 	--color-fffa65: #fffa65;
 	--color-3282f5: #3282f5;
@@ -101,6 +104,8 @@
 	--color-f0fdfa: #f0fdfa;
 	--color-2e5345: #2e5345;
 	--color-1616ff: #1616ff;
+	--color-256ef4: #256ef4;
+	--color-3e61ff: #3e61ff;
 
 	--color-slate-50: #f8fafc;
 	--color-slate-100: #f1f5f9;
@@ -340,6 +345,10 @@
 		}
 	}
 
+	aside-lnb {
+		@apply from-002e1e to-2e5345 bg-linear-to-t;
+	}
+
 	ui-btn {
 		@apply flex;
 	}
@@ -571,7 +580,7 @@
 		}
 
 		.tab-button {
-			@apply has-checked:before:bg-cms-2 has-checked:text-cms-2 relative isolate flex min-h-7.5 items-center justify-center border-b border-b-slate-300 px-1.75 duration-150 before:w-0 before:origin-left before:transition-all before:transition-discrete has-checked:before:absolute has-checked:before:bottom-0 has-checked:before:h-0.75 has-checked:before:w-full before:starting:w-0;
+			@apply has-checked:before:bg-cms-2 has-checked:text-cms-2 relative isolate flex min-h-7.5 flex-1 items-center justify-center border-b border-b-slate-300 px-1.75 transition-all duration-150 before:w-0 before:origin-left before:transition-all before:transition-discrete has-checked:before:absolute has-checked:before:bottom-0 has-checked:before:h-0.75 has-checked:before:w-full before:starting:w-0;
 		}
 
 		.tab-content {
@@ -619,10 +628,10 @@
 
 			th,
 			td {
-				@apply place-content-center p-1 text-center text-sm;
+				@apply place-content-center p-3 text-center text-sm;
 
 				& > div {
-					@apply min-h-12 place-content-center px-1 text-center text-sm;
+					@apply min-h-12 place-content-center text-center text-sm;
 				}
 			}
 		}

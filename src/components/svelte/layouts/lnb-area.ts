@@ -58,9 +58,7 @@ export class AsideLnb extends LitElement {
 
 		return html`
 			<aside class="from-002e1e to-2e5345 flex h-full flex-col space-y-3 bg-linear-to-t px-2 py-6">
-				<div class="flex h-10 justify-center">
-					<img class="h-10 w-auto" src="/src/images/logo/lnb-logo.svg" alt="logo" />
-				</div>
+				<div class="flex h-10 justify-center"></div>
 
 				<nav class="text-base text-slate-50">
 					<ul class="flex flex-col gap-3 text-center leading-tight break-keep">

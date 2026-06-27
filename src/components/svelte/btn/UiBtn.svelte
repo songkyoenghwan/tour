@@ -171,7 +171,7 @@
 		{/if}
 	</svelte:element>
 {:else if !isSegmented && tag === 'a'}
-	<a href={link} class="hover:text-1616ff flex items-center {variant} {size} {cls}" target="_blank">
+	<a href={link} class=" {variant} {size} {cls ? cls : 'hover:text-1616ff flex items-center'}" target="_blank">
 		{#if iconName && iconPos === 'lt'}
 			{@render icon()}
 		{/if}

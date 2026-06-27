@@ -1,7 +1,7 @@
 // $lib/types/page/page.type.ts
 import * as z from 'zod';
 
-export const viewSchema = z.enum(['reg', 'detail', 'edit']).default('reg').optional();
+export const viewSchema = z.enum(['reg', 'detail', 'edit', 'side']).default('reg').optional();
 
 export const pageSchema = z.object({
 	view: viewSchema,

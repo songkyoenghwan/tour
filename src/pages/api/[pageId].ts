@@ -1,5 +1,6 @@
-import { cmsPageData } from '@/data/cmsData';
 import type { APIRoute } from 'astro';
+
+import { cmsPageData } from '@/data/cmsData';
 
 export const GET: APIRoute = async ({ params }) => {
 	const { pageId } = params ?? {};

@@ -52,7 +52,10 @@
 <label for={itemId} class="check-box {reverse ? 'flex-row-reverse' : ''} {cls}">
 	<input type="checkbox" id={itemId} class="peer sr-only" {disabled} bind:checked onchange={change} />
 	<icon-list data-name={checked ? 'checkbox-on' : 'checkbox-off'} class="icon"></icon-list>
-	<span class="flex-1 text-sm text-black">{txt}</span>
+
+	{#if txt}
+		<span class="flex-1 text-sm text-black">{txt}</span>
+	{/if}
 </label>
 
 <style>

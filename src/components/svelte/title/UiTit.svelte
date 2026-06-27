@@ -11,8 +11,8 @@
 />
 
 <script lang="ts">
-	import HoverTooltip from '@/svelte/tooltip/HoverTooltip.svelte';
 	import { applyGlobalReset } from '@/styles/shadow-theme';
+	import HoverTooltip from '@/svelte/tooltip/HoverTooltip.svelte';
 	import type { Snippet } from 'svelte';
 
 	interface Props {

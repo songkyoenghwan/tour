@@ -10,7 +10,7 @@
 />
 
 <script lang="ts">
-	import { currentItemFromPath, currentSubItem, setCurrentId } from '@/stores/navigation.svelte';
+	import { currentItemFromPath, currentSubItem, setCurrentId } from '@/stores/navigation';
 	import type { LnbSubItem } from '@/types/Lnb';
 
 	let displayH3 = $derived($currentItemFromPath?.h3 ?? '');
