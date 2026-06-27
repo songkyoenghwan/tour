@@ -112,18 +112,18 @@ import LayoutBasic from '@/layouts/LayoutBasic.astro';
 							<template x-for="(item, idx) in $store.data.items" :key="item.id">
 								<tr>
 									<td>
-										<ui-checkbox :item-id="item.id"></ui-checkbox>
+										<ui-checkbox x-bind:item-id="item.id"></ui-checkbox>
 									</td>
 									<td>
-										<ui-txt size="sm" cls="text-center text-black" :txt="idx + 1"></ui-txt>
+										<ui-txt size="sm" cls="text-center text-black" x-bind:txt="idx + 1"></ui-txt>
 									</td>
 									<td>
-										<ui-txt size="sm" cls="text-left text-black" :txt="item.name.ko"></ui-txt>
+										<ui-txt size="sm" cls="text-left text-black" x-bind:txt="item.name.ko"></ui-txt>
 									</td>
 									<td>
 										<div class="flex items-center justify-start gap-1">
 											<template x-if="item.category.name.ko">
-												<ui-txt size="sm" cls="text-left text-black" :txt="item.category.name.ko"
+												<ui-txt size="sm" cls="text-left text-black" x-bind:txt="item.category.name.ko"
 												></ui-txt>
 											</template>
 											<template x-if="item.category?.parent">
@@ -140,11 +140,11 @@ import LayoutBasic from '@/layouts/LayoutBasic.astro';
 										</template>
 										<div class="flex items-center">
 											<template x-if="!item.isAlways">
-												<text-date :dateTime="item.startAt"></text-date>
+												<text-date x-bind:dateTime="item.startAt"></text-date>
 											</template>
 											~
 											<template x-if="!item.isAlways">
-												<text-date :dateTime="item.endAt"></text-date>
+												<text-date x-bind:dateTime="item.endAt"></text-date>
 											</template>
 										</div>
 									</td>
@@ -180,7 +180,7 @@ import LayoutBasic from '@/layouts/LayoutBasic.astro';
 									</td>
 
 									<td class="text-left">
-										<text-date data-time-view="time" :dateTime="item.updatedAt"></text-date>
+										<text-date data-time-view="time" x-bind:dateTime="item.updatedAt"></text-date>
 									</td>
 								</tr>
 							</template>
@@ -292,7 +292,7 @@ import LayoutBasic from '@/layouts/LayoutBasic.astro';
 								<ui-btn variant="ghost" size="sm" cls="min-w-15" txt="수정"></ui-btn>
 							</div>
 
-							<facility-button :facilityButtons="JSON.stringify($store?.data?.data?.facilityButtons)"
+							<facility-button x-effect="$el.facilityButtons = $store.data.data?.facilityButtons ?? []"
 							></facility-button>
 						</li>
 						<li class="space-y-2 px-5 py-3">
@@ -322,10 +322,10 @@ import LayoutBasic from '@/layouts/LayoutBasic.astro';
 									:facilityFiles="firstThumb"></thumbnail-upload>
 
 								<div class="space-y-0.5">
-									<ui-tit tag="h4" size="sm" :tit="firstName"></ui-tit>
+									<ui-tit tag="h4" size="sm" x-bind:tit="firstName"></ui-tit>
 
 									<div class="flex items-center justify-start gap-1">
-										<ui-txt size="xs" :txt="firstCategory"></ui-txt>
+										<ui-txt size="xs" x-bind:txt="firstCategory"></ui-txt>
 									</div>
 
 									<template x-if="poiMappingsLength === 0">
@@ -337,11 +337,11 @@ import LayoutBasic from '@/layouts/LayoutBasic.astro';
 									</template>
 
 									<template x-if="poiMappingsLength > 0 && firstPoiNameKo !== ''">
-										<text-badge variant="bg-alert" :txt="firstPoiNameKo"></text-badge>
+										<text-badge variant="bg-alert" x-bind:txt="firstPoiNameKo"></text-badge>
 									</template>
 								</div>
 							</div>
-							<lang-translate view="side" data-text-hidden="ko" :lang="JSON.stringify($store.data.data.name)"
+							<lang-translate view="side" data-text-hidden="ko" x-bind:lang="JSON.stringify($store.data.data.name)"
 							></lang-translate>
 						</li>
 						<li class="space-y-2 px-5 py-3">
@@ -358,11 +358,11 @@ import LayoutBasic from '@/layouts/LayoutBasic.astro';
 								</template>
 								<div class="flex items-center">
 									<template x-if="!$store.data.data.isAlways">
-										<text-date class="text-xs" :dateTime="$store.data.data.startAt"></text-date>
+										<text-date class="text-xs" x-bind:dateTime="$store.data.data.startAt"></text-date>
 									</template>
 									~
 									<template x-if="!$store.data.data.isAlways">
-										<text-date class="text-xs" :dateTime="$store.data.data.endAt"></text-date>
+										<text-date class="text-xs" x-bind:dateTime="$store.data.data.endAt"></text-date>
 									</template>
 								</div>
 							</div>
@@ -392,7 +392,8 @@ import LayoutBasic from '@/layouts/LayoutBasic.astro';
 								<ui-tit tag="h5" size="md" tit="상세 정보"></ui-tit>
 								<ui-btn variant="ghost" size="sm" cls="min-w-15" txt="수정"></ui-btn>
 							</div>
-							<lang-translate view="side" :lang="JSON.stringify($store.data.data.description)"></lang-translate>
+							<lang-translate view="side" x-bind:lang="JSON.stringify($store.data.data.description)"
+							></lang-translate>
 						</li>
 					</ul>
 				</div>
@@ -401,7 +402,8 @@ import LayoutBasic from '@/layouts/LayoutBasic.astro';
 			<footer class="flex-none divide-y divide-slate-200 border-t border-t-slate-200 bg-white">
 				<div class="flex items-center gap-2 px-5 py-3">
 					<h4 class="text-xs">등록</h4>
-					<text-date class="text-slate-500" data-time-view="time" :dateTime="$store.data.data.createdAt"></text-date>
+					<text-date class="text-slate-500" data-time-view="time" x-bind:dateTime="$store.data.data.createdAt"
+					></text-date>
 				</div>
 
 				<div class="grid grid-cols-[60px_1fr] gap-2 px-5 py-3">
